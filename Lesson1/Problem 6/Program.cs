@@ -6,17 +6,17 @@ Console.Write("Введите число: ");
 bool res = double.TryParse(Console.ReadLine(), out double Number);
 
 if (!res)
-{
+    {
     Console.WriteLine("Что-то пошло не так (одно из чисел введено в неправильном формате или нажат Enter)");   
-}
+    }
 else
-{
+    {
     if (Number%2 == 0)
-    {
-    Console.Write($"Число {Number} - чётное");
-    }
+        {
+        Console.Write($"Число {Number} - чётное");
+        }
     else
-    {
-    Console.Write($"Число {Number} - нечётное");
+        {
+        Console.Write($"Число {Number} - нечётное");
+        }
     }
-}

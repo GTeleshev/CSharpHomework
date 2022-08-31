@@ -10,7 +10,7 @@ Console.Write("Введите второе число: ");
 bool res2 = double.TryParse(Console.ReadLine(), out double secondNumber);
 Console.Write("Введите третье число: ");
 bool res3 = double.TryParse(Console.ReadLine(), out double thirdNumber);
-double max = 0;
+double max = firstNumber;
 List<double> threeNumbers = new List<double>();
 threeNumbers.Add(firstNumber);
 threeNumbers.Add(secondNumber);
@@ -22,13 +22,13 @@ if (!res1 || !res2 || !res3)
 }
 else
 {
-while (numIndex < 3)
-    {
-    if (threeNumbers[numIndex] > max)
-    {
-    max = threeNumbers[numIndex];
-    }
-    numIndex++;
-    }
+    while (numIndex < 3)
+        {
+        if (threeNumbers[numIndex] > max)
+        {
+        max = threeNumbers[numIndex];
+        }
+        numIndex++;
+        }
 Console.Write($"Максимальное число из трёх: {max}");
 }

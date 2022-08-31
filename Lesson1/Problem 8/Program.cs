@@ -15,7 +15,7 @@ if (!res || Number < 0)
     }
 else 
     while (currentEven <= maxEven)
-        {
-        Console.Write($"{currentEven} ");
-        currentEven = currentEven + 2;    
-        }
+    {
+    Console.Write($"{currentEven} ");
+    currentEven = currentEven + 2;    
+    }
