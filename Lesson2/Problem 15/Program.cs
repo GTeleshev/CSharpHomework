@@ -5,15 +5,21 @@
 //6 -> да
 //7 -> да
 //1 -> нет
+
+string errorMessage = "Что-то пошло не так (нажат Enter, не введено целое число, введено число больше 7 или меньше 1)";
+string[] weekDays = new string [] {"Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"};
+int errorCount = 0;
+start:
 Console.Write("Введите номер дня недели (число от 1 до 7): ");
 bool res = int.TryParse(Console.ReadLine(), out int weekdayNum);
-string errorMessage = "Что-то пошло не так (нажат Enter, не введено целое число, введено число больше 7 или меньше 1)";
-// int[] array2 = new int[] { 1, 2, 3, 4, 5, 6, 7};
-string[] weekDays = new string [] {"Понедельник", "Вторник", "Среда", "Четверг", "Пятница", "Суббота", "Воскресенье"};
+
 
 if (!res || weekdayNum > 7 || weekdayNum < 1)
     {
         Console.WriteLine(errorMessage);
+        errorCount++;
+        Console.WriteLine($"Количество попыток неправильного ввода: {errorCount}, для завершения программы нажмите Ctrl + C, либо повторите попытку");
+        goto start;
     }
 else
     {

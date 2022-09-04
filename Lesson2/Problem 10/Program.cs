@@ -5,12 +5,13 @@
 //456 -> 5
 //782 -> 8
 //918 -> 1
-
-Console.Write("Введите трёхзначное число: ");
-bool res = int.TryParse(Console.ReadLine(), out int num);
 string errorMessage = "Что-то пошло не так (нажат Enter, не введено целое число, введено число с количеством цифр <>3";
+int errorCount = 0;
 int requiredLength = 3;
 int requiredPos = 2;
+start:
+Console.Write("Введите трёхзначное число: ");
+bool res = int.TryParse(Console.ReadLine(), out int num);
 
 //решение 1. операция с числом как с текстом
 
@@ -19,6 +20,9 @@ int strLength = numstring.Length;
 if (!res || numstring.Length != requiredLength)
     {
         Console.WriteLine(errorMessage);
+        errorCount++;
+        Console.WriteLine($"Количество попыток неправильного ввода: {errorCount}, для завершения программы нажмите Ctrl + C, либо повторите попытку");
+        goto start;
     }
 else
     {

@@ -4,18 +4,24 @@
 //645 -> 5
 //78 -> третьей цифры нет
 //32679 -> 6
-
-Console.Write("Введите число: ");
-bool res = int.TryParse(Console.ReadLine(), out int num);
 string errorMessage = "Что-то пошло не так (нажат Enter, не введено целое число)";
+int errorCount = 0;
 string insuffLength = "В числе нет третьей цифры";
 int requiredDigit = 3;
+
+start:
+Console.Write("Введите число: ");
+bool res = int.TryParse(Console.ReadLine(), out int num);
+
 
 // Решение 1 - с переводом числа в текстовую строку
 
 if (!res)
 {
     Console.WriteLine(errorMessage);
+    errorCount++;
+    Console.WriteLine($"Количество попыток неправильного ввода: {errorCount}, для завершения программы нажмите Ctrl + C, либо повторите попытку");
+    goto start;
 }
 
 else 
@@ -25,6 +31,9 @@ else
     if (numlength < requiredDigit)
     {
         Console.WriteLine(insuffLength);
+        errorCount++;
+        Console.WriteLine($"Количество попыток неправильного ввода: {errorCount}, для завершения программы нажмите Ctrl + C, либо повторите попытку");
+        goto start;
     }
     else
     {
