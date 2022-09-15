@@ -2,7 +2,7 @@
 [3, 7, 23, 12] -> 19
 [-4, -6, 89, 6] -> 0 */
 Console.Clear();
-int[] firstArray = FillArray(7, 0, 10);
+int[] firstArray = FillArray(4, 0, 10);
 PrintArray(firstArray);
 int sumUneven = SumUnevenPosition(firstArray);
 Console.WriteLine($"->{sumUneven}");
@@ -25,7 +25,7 @@ int SumUnevenPosition(int[] ArrayToSum)
     int sum = 0;
     for (int j = 0; j < len; j++)
     {
-        if ((j + 1) % 2 != 0)
+        if ((j) % 2 != 0)
         {
             sum = sum + ArrayToSum[j];
         }
