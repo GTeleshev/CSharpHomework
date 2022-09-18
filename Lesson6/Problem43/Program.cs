@@ -9,6 +9,9 @@ double k2 = 3;
 double b1 = 4;
 double b2 = 6;
 
+double[] intCoord = Intersection(k1,b1,k2,b2);
+Console.WriteLine($"{intCoord[0]}, {intCoord[1]}");
+
 double[] Intersection(double mult1, double constant1, double mult2,  double constant2)
 {
     double[] intersectionCoord = new double [2];
@@ -24,7 +27,3 @@ double[] Intersection(double mult1, double constant1, double mult2,  double cons
     }
     return intersectionCoord;
 }
-
-double[] intCoord = Intersection(k1,b1,k2,b2);
-
-Console.WriteLine($"{intCoord[0]}, {intCoord[1]}");

@@ -37,9 +37,13 @@ void CheckPositive(string errorMessage, string firstMessage, string secondMessag
                 {
                     Console.WriteLine(errorMessage);
                 }
-                else if(numsToCheck[count] > 0)
+                if(numsToCheck[count] > 0)
                 {
                     posCount++;
+                    count++;
+                }
+                else
+                {
                     count++;
                 }
                 
@@ -48,4 +52,3 @@ void CheckPositive(string errorMessage, string firstMessage, string secondMessag
     }
     Console.WriteLine(thirdMessage + posCount.ToString());
 }
-
