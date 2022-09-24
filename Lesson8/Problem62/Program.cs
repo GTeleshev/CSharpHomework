@@ -16,6 +16,7 @@ firstCoord[0, 1] = 0;
 int[,] seqArray = GenerateValueSequence(array, valuesToFill, firstCoord);
 string format = "00";
 PrintStringArray(ConvertToStringArray(array, format));
+//BeepDraw(seqArray, 4, format);
 
 int[,] GenerateValueSequence(int[,] array, int[] valuesToFill, int[,] initialCoordinates)
 {
@@ -72,7 +73,7 @@ int ReturnArrayValue(int[,] array, int[,] coordinates)
     int row = coordinates[0, 0];
     int column = coordinates[0, 1];
     int arrayValue = -1000;
-    if (row < rows && column < columns)
+    if (row < rows && column < columns && row >= 0 && column >= 0)
     {
         arrayValue = array[row, column];
     }
@@ -144,13 +145,24 @@ string[,] ConvertToStringArray(int[,] array, string formatting)
 {
     int m = array.GetLength(0);
     int n = array.GetLength(1);
-    string[,] finalString = new string [m,n];
+    string[,] finalString = new string[m, n];
     for (int i = 0; i < m; i++)
     {
         for (int j = 0; j < n; j++)
         {
-            finalString[i,j] = array[i, j].ToString(formatting);
+            finalString[i, j] = array[i, j].ToString(formatting);
         }
     }
     return finalString;
+}
+
+void BeepDraw(int[,] sequenceArray, int spacing, string formatting)
+{
+    int rows = sequenceArray.GetLength(0);
+    for (int i = 0; i < rows; i++)
+    {
+        Console.Beep();
+        Console.SetCursorPosition((spacing) * sequenceArray[i, 2], (spacing - 2) * sequenceArray[i, 1]);
+        Console.Write((sequenceArray[i, 3]).ToString(formatting));
+    }
 }
