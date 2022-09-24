@@ -5,8 +5,8 @@
 11 16 15 06
 10 09 08 07 */
 Console.Clear();
-int dimension0 = 8;
-int dimension1 = 10;
+int dimension0 = 4;
+int dimension1 = 4;
 int[,] array = new int[dimension0, dimension1];
 int[] valuesToFill = Get2DArray(dimension0 * dimension1, 1, 1);
 int[,] firstCoord = new int[1, 2];
@@ -14,23 +14,9 @@ firstCoord[0, 0] = 0;
 firstCoord[0, 1] = 0;
 
 int[,] seqArray = GenerateValueSequence(array, valuesToFill, firstCoord);
+string format = "00";
+PrintStringArray(ConvertToStringArray(array, format));
 
-PrintStringArray(ConvertToStringArray(array));
-
-string[,] ConvertToStringArray(int[,] array)
-{
-    int m = array.GetLength(0);
-    int n = array.GetLength(1);
-    string[,] finalString = new string [m,n];
-    for (int i = 0; i < m; i++)
-    {
-        for (int j = 0; j < n; j++)
-        {
-            finalString[i,j] = array[i, j].ToString("00");
-        }
-    }
-    return finalString;
-}
 int[,] GenerateValueSequence(int[,] array, int[] valuesToFill, int[,] initialCoordinates)
 {
     int m = array.GetLength(0);
@@ -77,13 +63,6 @@ int RotateDirection(int[,] arraytocheck, int[,] coordinates, int direction)
         }
     }
     return direction;
-}
-
-void SetSingleArrayValue(int[,] array, int[,] coordinates, int value)
-{
-    int rows = coordinates[0, 0];
-    int columns = coordinates[0, 1];
-    array[rows, columns] = value;
 }
 
 int ReturnArrayValue(int[,] array, int[,] coordinates)
@@ -159,4 +138,19 @@ void PrintStringArray(string[,] inArray)
         }
         Console.WriteLine();
     }
+}
+
+string[,] ConvertToStringArray(int[,] array, string formatting)
+{
+    int m = array.GetLength(0);
+    int n = array.GetLength(1);
+    string[,] finalString = new string [m,n];
+    for (int i = 0; i < m; i++)
+    {
+        for (int j = 0; j < n; j++)
+        {
+            finalString[i,j] = array[i, j].ToString(formatting);
+        }
+    }
+    return finalString;
 }
