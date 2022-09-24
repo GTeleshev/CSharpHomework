@@ -9,12 +9,12 @@
 номер строки с наименьшей суммой элементов: 1 строка */
 Console.Clear();
 string defaultString = String.Empty;
-int[,] arrayToProcess = GetArray(5, 5, 0, 9);
+int[,] arrayToProcess = GetArray(4, 4, 0, 9);
 
 int[] rowminIndex = RowMinimumSumIndex(arrayToProcess);
 PrintArray(arrayToProcess);
 Console.WriteLine();
-Console.WriteLine(String.Join(", ", rowminIndex));
+Console.WriteLine($"Номер строки (от 0) с наименьшей суммой: {rowminIndex[0]}. Сумма: {rowminIndex[1]}");
 
 int[] RowMinimumSumIndex(int[,] arrayToGetMinimum)
 {

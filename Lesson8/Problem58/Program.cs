@@ -5,9 +5,9 @@
 Результирующая матрица будет:
 18 20
 15 18 */
-int sogl = 4;
+int sogl = 2;
 int[,] firstMatrix = GetArray(2, sogl, 1, 5);
-int[,] secondMatrix = GetArray(sogl, 3, 1, 5);
+int[,] secondMatrix = GetArray(sogl, 2, 1, 5);
 int[,] multi = MatrixMultiply(firstMatrix, secondMatrix);
 Console.WriteLine();
 PrintArray(firstMatrix);
