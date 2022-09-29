@@ -6,7 +6,7 @@
 10 09 08 07 */
 Console.Clear();
 int dimension0 = 4;
-int dimension1 = 4;
+int dimension1 = 7;
 int[,] array = new int[dimension0, dimension1];
 int[] valuesToFill = Get2DArray(dimension0 * dimension1, 1, 1);
 int[,] firstCoord = new int[1, 2];
@@ -15,8 +15,8 @@ firstCoord[0, 1] = 0;
 
 int[,] seqArray = GenerateValueSequence(array, valuesToFill, firstCoord);
 string format = "00";
-PrintStringArray(ConvertToStringArray(array, format));
-//BeepDraw(seqArray, 4, format);
+//PrintStringArray(ConvertToStringArray(array, format));
+BeepDraw(seqArray, 4, format);
 
 int[,] GenerateValueSequence(int[,] array, int[] valuesToFill, int[,] initialCoordinates)
 {
@@ -150,7 +150,7 @@ string[,] ConvertToStringArray(int[,] array, string formatting)
     {
         for (int j = 0; j < n; j++)
         {
-            finalString[i, j] = array[i, j].ToString(formatting);
+            finalString[i, j] = array[i, j].ToString("formatting");
         }
     }
     return finalString;
